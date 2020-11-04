@@ -70,7 +70,7 @@
 		<dependency>
 			<groupId>com.aventstack</groupId>
 			<artifactId>extentreports</artifactId>
-			<version>4.0.0</version>
+			<version>4.1.4</version>
 		</dependency>
 
 		<!-- extent report end -->
