@@ -32,10 +32,10 @@ public class AddUser extends AddUserPageRepository {
 	// all Lable Methods
    // all text area check
 	public String addUserTextCheck() {
-		//logger.info("========================================================");
+		logger.info("========================================================");
 		String adduserText = addUserText.getText();
 		logger.info("inside Add user file");
-		//logger.info("========================================================");
+		logger.info("========================================================");
 		return adduserText;
 	}
 
