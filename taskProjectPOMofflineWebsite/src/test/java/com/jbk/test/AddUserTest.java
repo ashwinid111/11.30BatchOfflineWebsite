@@ -17,7 +17,7 @@ public class AddUserTest extends TestBase {
 	WebDriver driver = null;
 	LoginPage_AddUser lp;
 	AddUser rp;
-	private static Logger logger = Logger.getLogger(AddUserTest.class);
+	public static Logger logger = Logger.getLogger(AddUserTest.class);
 
 	@BeforeClass
 	public void openBrowser() {
