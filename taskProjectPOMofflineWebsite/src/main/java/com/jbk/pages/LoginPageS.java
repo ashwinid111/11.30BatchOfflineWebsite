@@ -14,6 +14,8 @@ import org.testng.annotations.Test;
 import com.gargoylesoftware.htmlunit.javascript.host.event.MSGestureEvent;*/
 import com.jbk.objectRepository.LoginPageObjectRepository;
 
+import okhttp3.internal.http.RetryAndFollowUpInterceptor;
+
 public class LoginPageS extends LoginPageObjectRepository {
 	public WebDriver driver;
 	
@@ -92,7 +94,13 @@ public class LoginPageS extends LoginPageObjectRepository {
 	      	
 	 }
 	 
-	 
+	 public Dashboardpage nevigeteToDashboard(WebDriver driver) {
+		    
+		 email_placeholder.sendKeys("kiran@gmail.com");
+		 password_placeholder.sendKeys("123456");
+		 button.click();
+		 return new Dashboardpage(driver);
+		 }
 	 public boolean loginCred(WebDriver driver) {
 		    
 		 email_placeholder.sendKeys("kiran@gmail.com");
