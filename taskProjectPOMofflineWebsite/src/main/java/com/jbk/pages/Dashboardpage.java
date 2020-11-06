@@ -146,11 +146,16 @@ public class Dashboardpage extends DashboardRepository {
 	{
 		userPage.click();
 	}
-	
-	public void navigateToOperatorsPage()
+	/*@author Tejasvini
+	 *  changing return type of Operators page 
+	 * 
+	 * 
+	 */
+	public OperatorPage  navigateToOperatorsPage()
 	{
 		WebElement operator=operatorsPage;
 		operator.click();
+		return new OperatorPage(driver);
 	}
 	
 	/*@author Mayur khakre
