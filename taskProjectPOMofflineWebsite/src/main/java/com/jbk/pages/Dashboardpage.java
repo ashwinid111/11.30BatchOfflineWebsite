@@ -153,10 +153,16 @@ public class Dashboardpage extends DashboardRepository {
 		operator.click();
 	}
 	
-	public void navigateToUsefulLinksPage()
+	/*@author Mayur khakre
+	 *  changing return type of useful Links page 
+	 * 
+	 * 
+	 */
+	public UsefulLinksPage navigateToUsefulLinksPage()
 	{
 		WebElement usefulLink=usefulLinksPage;
 		usefulLink.click();
+		return new UsefulLinksPage(driver);
 	}
 	
 	public void navigateToDownloadsPage()

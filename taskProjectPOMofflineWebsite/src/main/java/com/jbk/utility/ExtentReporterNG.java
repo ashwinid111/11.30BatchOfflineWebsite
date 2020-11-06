@@ -11,9 +11,9 @@ public class ExtentReporterNG
        static  ExtentReports extent;
        ExtentTest test;
      
-  public static ExtentReports getObject()
+  public static ExtentReports getObject(String classname)
   {
-	String path= System.getProperty("user.dir")+"\\reports\\index.html";
+	String path= System.getProperty("user.dir")+"\\reports\\"+classname+".html";
 	ExtentSparkReporter reporter= new ExtentSparkReporter(path);
 	reporter.config().setReportName("JBK offline Project Report");
 	reporter.config().setDocumentTitle("Test Results");
