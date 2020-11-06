@@ -10,8 +10,12 @@ public class ExtentReporterNG
 {
        static  ExtentReports extent;
        ExtentTest test;
+
      
   public static ExtentReports getObject(String classname)
+
+    
+  
   {
 	String path= System.getProperty("user.dir")+"\\reports\\"+classname+".html";
 	ExtentSparkReporter reporter= new ExtentSparkReporter(path);
