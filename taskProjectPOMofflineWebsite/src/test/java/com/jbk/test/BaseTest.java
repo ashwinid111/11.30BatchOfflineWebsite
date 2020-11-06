@@ -18,14 +18,14 @@ public class BaseTest {
 		
 		//System.getProperty("user.dir");
 		 prop=new Properties();
-		FileInputStream fis=new FileInputStream(System.getProperty("user.dir")+"\\src\\main\\resources\\resources\\data.properties");
+		FileInputStream fis=new FileInputStream(System.getProperty("user.dir")+"\\data.properties");
 		prop.load(fis);
 		//String browserName=System.getProperty("browser");
 		String browserName=prop.getProperty("browser");
 		System.out.println(browserName);
 		
 		if(browserName.equals("chrome")) {
-			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\src\\main\\java\\drivers\\chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\chromedriver.exe");
 			
 		     wd=new ChromeDriver();
 		}
