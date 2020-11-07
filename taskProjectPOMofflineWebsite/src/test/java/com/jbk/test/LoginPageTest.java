@@ -18,7 +18,7 @@ public class LoginPageTest {
 @BeforeMethod
 public void loadurl()
 {
-	System.setProperty("webdriver.chrome.driver","C:/chromedriver.exe");
+	System.setProperty("webdriver.chrome.driver","chromedriver.exe");
 	driver=new ChromeDriver();
 	driver.get("file:///C:/Users/User/Desktop/JBK%20Documents/Offline%20website/Offline%20website/index.html");
 	driver.manage().window().maximize();
