@@ -1,6 +1,7 @@
 package com.jbk.test;
 
 
+
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -10,35 +11,36 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import com.jbk.pages.AddUser;
+import com.jbk.pages.LoginPageS;
 import com.jbk.pages.LoginPage_AddUser;
-import com.jbk.testBase.TestBase;
 
-public class AddUserTest extends TestBase {
+public class AddUserTest{
 	WebDriver driver = null;
 	LoginPage_AddUser lp;
 	AddUser rp;
-	public static Logger logger = Logger.getLogger(AddUserTest.class);
-
+	LoginPageS login;
+	 
+	Logger logger = Logger.getLogger("test");
+	   
 	@BeforeClass
 	public void openBrowser() {
-		/*
-		 * TestBase b= new TestBase(); b.loggerTest();
-		 */
-	//	logger.info("========================================================");
 		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.get(
 				"file:///G:/Tushar/Software/Offline%20Website%20FULL/Offline%20Website/Offline%20Website/index.html");
 		lp = new LoginPage_AddUser(driver);
+		
 		rp = new com.jbk.pages.AddUser(driver);
+		logger.info("inside Add user test page..");
 
-		logger.info("Done with one test case");
-		//logger.info("========================================================");
+		logger.info("Browser open sucessfully......");
+	
 	}
 
 	@AfterClass
 	public void browserClose() {
 		driver.close();
+		logger.info("Browser closed sucessfully......");
 	}
 
 	// all URL Check
@@ -49,6 +51,7 @@ public class AddUserTest extends TestBase {
 		Assert.assertEquals(driver.getCurrentUrl(),
 				"file:///G:/Tushar/Software/Offline%20Website%20FULL/Offline%20Website/Offline%20Website/pages/examples/dashboard.html");
 		// System.out.println(driver.getCurrentUrl());
+		//logger.info(driver.getCurrentUrl());
 
 	}
 
@@ -73,6 +76,7 @@ public class AddUserTest extends TestBase {
 	public void addUserTextCheck() throws Exception {
 		String addUserText = rp.addUserTextCheck();
 		Assert.assertEquals(addUserText, "Add User");
+		logger.info("Add User text check....");
 	}
 
 	@Test(priority = 5)
@@ -123,12 +127,14 @@ public class AddUserTest extends TestBase {
 	public void userNamePlaceCheck() throws Exception {
 		String unamePalce = rp.getPlcaeholderUserName();
 		Assert.assertEquals(unamePalce, "Username");
+		logger.info("Username placholder check....");
 	}
 
 	@Test(priority = 13)
 	public void mobilePlaceCheck() throws Exception {
 		String mobilePalce = rp.getPlcaeholderMobile();
 		Assert.assertEquals(mobilePalce, "Mobile");
+		logger.info("Mobile placholder check....");
 	}
 
 	@Test(priority = 14)
@@ -141,6 +147,7 @@ public class AddUserTest extends TestBase {
 	public void coursesPlaceCheck() throws Exception {
 		String coursesPalce = rp.getPlcaeholderCourses();
 		Assert.assertEquals(coursesPalce, "Java/J2EE");
+		logger.info("Courses placholder check....");
 	}
 
 	@Test(priority = 16)
@@ -148,8 +155,5 @@ public class AddUserTest extends TestBase {
 		String passwordata = rp.getPlcaeholderPassword();
 		Assert.assertEquals(passwordata, "Password");
 	}
-	/*
-	 * @Test(priority = 17) public void genderChk() throws Exception { String
-	 * gender = rp.genderCheck(); Assert.assertEquals(gender, "Gender"); }
-	 */
+	
 }

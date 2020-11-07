@@ -14,11 +14,12 @@ public class AddUser extends AddUserPageRepository {
 	int cityData = 0;
 	List<WebElement> radio;
 	String gender = "Male";
-	private static Logger logger = Logger.getLogger(AddUser.class);
+	
+	Logger logger = Logger.getLogger("java");
 
 	public AddUser(WebDriver driver) {
 		super(driver);
-
+		
 	}
 
 	public void userPage() {
@@ -27,15 +28,15 @@ public class AddUser extends AddUserPageRepository {
 
 	public void addUserPage() {
 		adduser.click();
+		logger.info("inside Add user file");
 	}
 
 	// all Lable Methods
    // all text area check
 	public String addUserTextCheck() {
-		logger.info("========================================================");
+	
 		String adduserText = addUserText.getText();
-		logger.info("inside Add user file");
-		logger.info("========================================================");
+		logger.info("Add user text check...");
 		return adduserText;
 	}
 
@@ -78,16 +79,16 @@ public class AddUser extends AddUserPageRepository {
 	public String getPlcaeholderUserName() {
 		String username = usernamePlctxt.getAttribute("Placeholder");
 		usernamePlctxt.sendKeys("Tushar");
-		System.out.println("Plceholder Text : " + username);
-		// logger.info("Plceholder Text : " + naeval);
+		//System.out.println("Plceholder Text : " + username);
+		logger.info("Plceholder Text : " + username);
 		return username;
 	}
 
 	public String getPlcaeholderMobile() {
 		String mob = mobilePlctxt.getAttribute("Placeholder");
 		mobilePlctxt.sendKeys("9021475448");
-		System.out.println("Plceholder Text : " + mob);
-		// logger.info("Plceholder Text : " + naeval);
+		//System.out.println("Plceholder Text : " + mob);
+		logger.info("Plceholder Text : " + mob);
 
 		return mob;
 	}
@@ -95,17 +96,17 @@ public class AddUser extends AddUserPageRepository {
 	public String getPlcaeholderEmail() {
 		String email = emailPlctxt.getAttribute("Placeholder");
 		emailPlctxt.sendKeys("tushar@gmail.com");
-		System.out.println("Plceholder Text : " + email);
-		// logger.info("Plceholder Text : " + naeval);
+		//System.out.println("Plceholder Text : " + email);
+		logger.info("Plceholder Text : " + email);
 		return email;
 	}
 
 	public String getPlcaeholderCourses() {
 		String courses = coursesPlctxt.getAttribute("Placeholder");
 		coursesPlctxt.sendKeys("Seleneum");
-		System.out.println("Plceholder Text : " + courses);
+		//System.out.println("Plceholder Text : " + courses);
 
-		// logger.info("Plceholder Text : " + naeval);
+		logger.info("Plceholder Text : " + courses);
 
 		return courses;
 	}
@@ -113,16 +114,10 @@ public class AddUser extends AddUserPageRepository {
 	public String getPlcaeholderPassword() {
 		String password = passPlctxt.getAttribute("Placeholder");
 		passPlctxt.sendKeys("123456");
-		System.out.println("Plceholder Text : " + password);
+		//System.out.println("Plceholder Text : " + password);
 
-		// logger.info("Plceholder Text : " + naeval);
+		logger.info("Plceholder Text : " + password);
 
 		return password;
 	}
-
-	/*
-	 * public String genderCheck(){ public List<WebElement> radio_Gender; if
-	 * (gender.equals("Male")) driver.findElement(By.id("Male")).click(); else
-	 * driver.findElement(By.id("Female")).click(); return gender; }
-	 */
 }
