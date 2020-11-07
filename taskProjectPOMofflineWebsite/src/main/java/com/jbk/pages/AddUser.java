@@ -120,4 +120,8 @@ public class AddUser extends AddUserPageRepository {
 
 		return password;
 	}
+	public String genderCheck(){
+		radio_Gender.click();
+		return gender;		
+}
 }

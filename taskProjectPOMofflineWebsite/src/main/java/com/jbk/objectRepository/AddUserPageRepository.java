@@ -57,7 +57,7 @@ public class AddUserPageRepository {
 	public WebElement genderLable;
 
 	@FindBy(xpath = "//input[@name='gender' and @type='radio']")
-	public List<WebElement> radio_Gender;
+	public WebElement radio_Gender;
 
 	/*
 	 * @FindBy(xpath = "//label[text()='Gender']") public WebElement

@@ -155,5 +155,9 @@ public class AddUserTest{
 		String passwordata = rp.getPlcaeholderPassword();
 		Assert.assertEquals(passwordata, "Password");
 	}
-	
+	@Test(priority = 17)
+	public void genderChk() throws Exception {
+		String gender = rp.genderCheck();
+		Assert.assertEquals(gender, "Male");
+}
 }
