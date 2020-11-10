@@ -1,5 +1,8 @@
 package com.jbk.pages;
 
+import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 
@@ -10,7 +13,9 @@ public class RegsPage extends RegPageRepository {
 
 	WebDriver driver;
 	boolean r;
+	
 
+	Logger logger = Logger.getLogger("RegsPage.class");
 	public RegsPage(WebDriver driver) {
 		super(driver);
 		this.driver = driver;
@@ -21,7 +26,8 @@ public class RegsPage extends RegPageRepository {
 
 		String Signtxt = signbtn.getText();
 		String Expectedtext = "Sign In";
-		System.out.println(" Button Text : " + Signtxt);
+	
+		logger.info(" Button Text : " + Signtxt);
 		if (Signtxt.equals(Expectedtext)) {
 			r = true;
 		} else
@@ -34,7 +40,7 @@ public class RegsPage extends RegPageRepository {
 	public boolean getJbkHead() {
 		String jbtxt = jbktxt.getText();
 		String Expectedtext = "Java By Kiran";
-		System.out.println("Heading Text : " + jbtxt);
+		logger.info("Heading Text : " + jbtxt);
 		if (jbtxt.equals(Expectedtext)) {
 			r = true;
 		} else
@@ -46,7 +52,7 @@ public class RegsPage extends RegPageRepository {
 	public boolean getNewRegLabel() {
 		String newreglbl = newmwmtxt.getText();
 		String Expectedtext = "Register a new membership";
-		System.out.println("Label Text : " + newreglbl);
+		logger.info("Label Text : " + newreglbl);
 
 		if (newreglbl.equals(Expectedtext)) {
 			r = true;
@@ -59,7 +65,7 @@ public class RegsPage extends RegPageRepository {
 	public boolean getAlredyMemberLabel() {
 		String alabl = alredymemtxt.getText();
 		String Expectedtext = "I already have a membership";
-		System.out.println("Label Text : " + alabl);
+		logger.info("Label Text : " + alabl);
 		if (alabl.equals(Expectedtext)) {
 			r = true;
 		} else
@@ -72,7 +78,7 @@ public class RegsPage extends RegPageRepository {
 	public boolean getPlcaeholderName() { // Name
 		String naeval = unamePlctxt.getAttribute("Placeholder");
 		String Expectedtext = "Name";
-		System.out.println("Plceholder Text : " + naeval);
+		logger.info("Plceholder Text : " + naeval);
 		if (naeval.equals(Expectedtext)) {
 			r = true;
 		} else
@@ -84,7 +90,7 @@ public class RegsPage extends RegPageRepository {
 	public boolean getPlcaeholderMobile() { // Mobile
 		String Expectedtext = "Mobile";
 		String naeval = mobilePlctxt.getAttribute("Placeholder");
-		System.out.println("Plceholder Text : " + naeval);
+		logger.info("Plceholder Text : " + naeval);
 		if (naeval.equals(Expectedtext)) {
 			r = true;
 		} else
@@ -96,7 +102,7 @@ public class RegsPage extends RegPageRepository {
 	public boolean getPlcaeholderEmail() { // Eamil
 		String Expectedtext = "Email";
 		String naeval = emailPlctxt.getAttribute("Placeholder");
-		System.out.println("Plceholder Text : " + naeval);
+		logger.info("Plceholder Text : " + naeval);
 		if (naeval.equals(Expectedtext)) {
 			r = true;
 		} else
@@ -108,7 +114,7 @@ public class RegsPage extends RegPageRepository {
 	public boolean getPlcaeholderPass() { // Password
 		String Expectedtext = "Password";
 		String naeval = passPlctxt.getAttribute("Placeholder");
-		System.out.println("Plceholder Text : " + naeval);
+		logger.info("Plceholder Text : " + naeval);
 		if (naeval.equals(Expectedtext)) {
 			r = true;
 		} else
@@ -128,10 +134,10 @@ public class RegsPage extends RegPageRepository {
 		System.out.print(err);
 		String expectedError = "Please enter Name.";
 		if (err.equals(expectedError)) {
-			System.out.println("Error msg Match");
+			logger.info("Error msg Match");
 			return true;
 		} else {
-			System.out.println("Not match");
+			logger.info("Not match");
 
 			return false;
 		}
@@ -152,10 +158,10 @@ public class RegsPage extends RegPageRepository {
 		System.out.print(err);
 		String expectedError = "Please enter Mobile.";
 		if (err.equals(expectedError)) {
-			System.out.println("Error msg Match");
+			logger.info("Error msg Match");
 			r = true;
 		} else {
-			System.out.println("Not match");
+			logger.info("Not match");
 
 			r = false;
 		}
@@ -176,10 +182,10 @@ public class RegsPage extends RegPageRepository {
 		// return err;
 		String expectedError = "Please enter Email.";
 		if (err.equals(expectedError)) {
-			System.out.println("Error msg Match");
+			logger.info("Error msg Match");
 			r = true;
 		} else {
-			System.out.println("Not match");
+			logger.info("Not match");
 
 			r = false;
 		}
@@ -199,10 +205,10 @@ public class RegsPage extends RegPageRepository {
 		// return err;
 		String expectedError = "Please enter Password.";
 		if (err.equals(expectedError)) {
-			System.out.println("Error msg Match");
+			logger.info("Error msg Match");
 			r = true;
 		} else {
-			System.out.println("Not match");
+			logger.info("Not match");
 
 			r = false;
 		}
@@ -222,15 +228,15 @@ public class RegsPage extends RegPageRepository {
 
 	public void alerthandle(WebDriver driver2) {
 		Alert al = driver2.switchTo().alert();
-		System.out.println(" Alter Message :" + al.getText());
+		logger.info(" Alter Message :" + al.getText());
 		al.accept();
 	}
 
 	public boolean logoPageCheck() {
 		jbktxt.click();
-		String url = "file:///G:/Workspace/Offline%20website/index2.html";
+		String url = "file:///C:/Offline%20website/index2.html";
 		String expectedurl = driver.getCurrentUrl();
-		System.out.println(url + "  " + expectedurl);
+		logger.info(url + "  " + expectedurl);
 		if (url.equals(expectedurl)) {
 			r = true;
 		} else
@@ -243,8 +249,8 @@ public class RegsPage extends RegPageRepository {
 	public boolean alredyMemberClick() {
 		alredymemtxt.click();
 		String acturl = driver.getCurrentUrl();
-		String expectedurl = "file:///G:/Workspace/Offline%20website/index.html";
-		System.out.println(acturl + "  " + expectedurl);
+		String expectedurl = "file:///C:/Offline%20website/index.html";
+		logger.info(acturl + "  " + expectedurl);
 		if (acturl.equals(expectedurl)) {
 			r = true;
 		} else
