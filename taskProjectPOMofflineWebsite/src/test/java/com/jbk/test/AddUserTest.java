@@ -1,7 +1,5 @@
 package com.jbk.test;
 
-
-
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -14,27 +12,32 @@ import com.jbk.pages.AddUser;
 import com.jbk.pages.LoginPageS;
 import com.jbk.pages.LoginPage_AddUser;
 
-public class AddUserTest{
+public class AddUserTest extends BaseTest {
 	WebDriver driver = null;
 	LoginPage_AddUser lp;
 	AddUser rp;
 	LoginPageS login;
-	 
-	Logger logger = Logger.getLogger("test");
-	   
-	@BeforeClass
-	public void openBrowser() {
-		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
-		driver = new ChromeDriver();
-		driver.get(
-				"file:///G:/Tushar/Software/Offline%20Website%20FULL/Offline%20Website/Offline%20Website/index.html");
-		lp = new LoginPage_AddUser(driver);
-		
-		rp = new com.jbk.pages.AddUser(driver);
-		logger.info("inside Add user test page..");
 
-		logger.info("Browser open sucessfully......");
-	
+	Logger logger = Logger.getLogger("test");
+
+	@BeforeClass
+	public void openBrowser() throws Exception {
+	/*	wd = initializedriver();
+		rp = login.nevigeteToDashboard(wd).navigateToUserPage();
+		rp = new AddUser(wd);*/
+
+		
+		 System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+		 driver = new ChromeDriver(); 
+		 driver.get("file:///G:/Tushar/Software/Offline%20Website%20FULL/Offline%20Website/Offline%20Website/index.html"
+		  ); 
+		 lp = new LoginPage_AddUser(driver);
+		  
+		  rp = new com.jbk.pages.AddUser(driver);
+		  logger.info("inside Add user test page..");
+		  
+		  logger.info("Browser open sucessfully......");
+		 
 	}
 
 	@AfterClass
@@ -46,12 +49,12 @@ public class AddUserTest{
 	// all URL Check
 	@Test(priority = 1)
 	public void allUrl() throws Exception {
-
-		lp.loginData();
+ lp.loginData();
+		//login.loginCred(driver);
 		Assert.assertEquals(driver.getCurrentUrl(),
 				"file:///G:/Tushar/Software/Offline%20Website%20FULL/Offline%20Website/Offline%20Website/pages/examples/dashboard.html");
 		// System.out.println(driver.getCurrentUrl());
-		//logger.info(driver.getCurrentUrl());
+		// logger.info(driver.getCurrentUrl());
 
 	}
 
@@ -155,9 +158,10 @@ public class AddUserTest{
 		String passwordata = rp.getPlcaeholderPassword();
 		Assert.assertEquals(passwordata, "Password");
 	}
+
 	@Test(priority = 17)
 	public void genderChk() throws Exception {
 		String gender = rp.genderCheck();
 		Assert.assertEquals(gender, "Male");
-}
+	}
 }
